@@ -1,10 +1,11 @@
 class PlansController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_plan, only: [:show, :edit, :update, :destroy]
 
   # GET /plans
   # GET /plans.json
   def index
-    @plans = Plan.all
+    @plans = Plan.where(user_id: current_user.id)
   end
 
   # GET /plans/1
@@ -25,6 +26,7 @@ class PlansController < ApplicationController
   # POST /plans.json
   def create
     @plan = Plan.new(plan_params)
+    @plan.user_id = current_user.id
 
     respond_to do |format|
       if @plan.save
@@ -69,6 +71,6 @@ class PlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plan_params
-      params.require(:plan).permit(:name)
+      params.require(:plan).permit(:name, user_id)
     end
 end
