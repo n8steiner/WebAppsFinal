@@ -14,3 +14,492 @@
  *= require_self
  *= require dataTables/jquery.dataTables
  */
+
+ body {
+    margin: 0px;
+    padding: 0px;
+
+    font-family: 'Sarabun', sans-serif;
+}
+
+nav {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100px;
+
+    color: white;
+    font-weight: bold;
+
+    background-color: #00395C; /*#1E4C45;*/
+
+    box-shadow: 0px 0px 5px black;
+
+    z-index: 1000;
+}
+
+#cedarTitle {
+    position: relative;
+    left: 20px;
+    color: #FC7C00;
+    font-size: 2.5em;
+    font-weight: 200;
+    line-height: 100px;
+}
+
+#apeTitle {
+    position: relative;
+    left: 20px;
+    color: #00bde5;
+    font-size: 2.5em;
+    font-weight: 600;
+    line-height: 100px;
+    z-index: 2;
+}
+
+#cedarLogo {
+    position: relative;
+    left: -10px;
+    height: 80px;
+    width: 87px !important;
+    z-index: 1;
+}
+
+#controls {
+    position: relative;
+    line-height: 100px;
+    font-size: 1.2em;
+    float: right;
+    right: 20px;
+}
+
+#controls .button {
+    cursor: pointer;
+    background-color: #FC7C00;
+    width: auto;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 0.8em;
+    margin-left: 10px;
+    padding: 15px;
+	top: 0px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+#controls .button:hover {
+    background-color: #fdb815;
+}
+
+#controls .button:focus {
+	outline: none;
+}
+
+#controls select:hover {
+	background-color: #FC7C00 !important;
+}
+
+#mainContent {
+    position: relative;
+    top: 100px;
+    height: calc(100vh - 100px);
+
+    color: #FC7C00;
+
+    display: grid;
+    grid-template-columns: 20fr 80fr;
+    grid-template-rows: 7fr 3fr;
+    grid-template-areas: 'left ur' 'left lr';
+    z-index: 100;
+}
+
+#left {
+    display: grid;
+    grid-area: left;
+    grid-template-areas: 'ul' 'll';
+}
+
+#accordion {
+    position: relative;
+    left: 5%;
+    width: 90%;
+    margin-top: 20px;
+    padding: 0px;
+    background-color: #EFEFEF;
+    min-height: 100px;
+    overflow: hidden;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+}
+
+#reqTitle {
+    width: calc(100% - 10px);
+    color: white;
+    background: #00395C;
+    padding: 5px;
+    text-align: center;
+    margin: 0px;;
+}
+
+.reqSubHeader {
+    cursor: pointer;
+    width: calc(100% - 10px);
+    color: white;
+    background: #FC7C00;
+    padding: 5px;
+    text-align: center;
+    border-top: solid #EFEFEF 1px;
+    margin: 0px;
+}
+
+#reqContainer ul {
+    list-style-image: url("../images/alertCircle.png");
+    padding-right: 15px;
+    max-resolution: 0px;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-bottom: auto;
+}
+
+.planned {
+    list-style-image: url("../images/check.svg");
+}
+
+#reqContainer li {
+    cursor: pointer;
+    margin-bottom: 0px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#reqContainer li:hover {
+    color: white;
+    background-color: #00395C;
+}
+
+#ur {
+    grid-area: ur;
+
+    display: block;
+
+    border-color: #FC7C00;
+    border-style: solid;
+    border-width: 0px 0px 2px 2px;
+
+    overflow: auto;
+}
+
+.year {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    min-height: 100px;
+    width: 100%;
+}
+
+.semester {
+    position: relative;
+    background-color: #FC7C00;
+    border-radius: 7px;
+    min-width: 150px;
+    width: 30%;
+    min-height: 100px;
+    padding: 15px;
+    margin: 10px;
+    color: white;
+
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6);
+}
+
+.semesterName {
+    font-size: 0.7em;
+    margin: 0px;
+    width: 49%;
+    float: left;
+    display: inline;
+}
+
+.semesterHours {
+    font-size: 0.7em;
+    float: left;
+    display: inline;
+    width: 49%;
+    text-align: right;
+    margin: 0px 0px 10px;
+}
+
+.course {
+    font-size: 0.9em;
+    margin-top: 5px;
+    margin-left: -5px;
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    display: block;
+    border-bottom: solid white 1px;
+    padding: 5px;
+}
+
+.inProgress .course {
+    color: #FC7C00;
+    border-bottom-color: #fdb815;
+}
+
+.course:hover {
+    cursor: pointer;
+    background-color: #00395C;
+    border-radius: 5px;
+    border-bottom-color: transparent;
+    color: white;
+}
+
+.complete .course:hover {
+    cursor: auto;
+    background-color: transparent;
+    border-bottom: solid white 1px;
+    color: white;
+}
+
+.complete {
+    background: #fdb815;
+}
+
+.inProgress {
+    background: white;
+    border: solid #FC7C00 5px;
+    color: #FC7C00;
+}
+
+#ll {
+    grid-area: ll;
+
+    font-size: 1em;
+    padding-left: 20px;
+
+    vertical-align: bottom;
+
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+#llContent {
+    position: relative;
+    top: calc(100% - 20px);
+    transform: translateY(-100%);
+}
+
+#ll p {
+    margin: 0px 0px 5px;
+}
+
+#ll a {
+    color: #FC7C00;
+    text-decoration: none;
+    display: inline;
+}
+
+#ll a:hover {
+    text-decoration: underline;
+}
+
+#lr {
+    grid-area: lr;
+    max-height: 40vh;
+    overflow: auto;
+
+    border: 0px solid #FC7C00;
+    border-left-width: 2px;
+}
+
+#catalog_filter {
+    position: fixed;
+    background: #00395C;
+    z-index: 2;
+    height: 40px;
+    width: 100%;
+    top: 100%;
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    transform: translateY(-100%);
+}
+
+.textSuggest {
+    position: absolute;
+    color: #959595;
+    font-size: 14px;
+}
+
+.dataTables_scrollHead {
+    position: fixed !important;
+    background: #00395C;
+    z-index: 3;
+}
+
+.dataTables_scrollBody {
+    top: 32px;
+    z-index: 1;
+    margin-bottom: 40px;
+}
+
+#catalog {
+    width: calc(100% - 11px);
+    border-collapse: collapse;
+    overflow-x: hidden;
+    background: white;
+
+    max-height: 40vh;
+}
+
+thead {
+    background: #00395C;
+    color: white;
+    border-collapse: collapse;
+}
+
+th {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #00395C;
+    cursor: pointer;
+}
+
+#catalog td {
+    padding: 5px 5px 5px 10px;
+}
+
+#catalog tr:nth-child(even) {
+    background: #fdb8152f;
+}
+
+#catalog td:not(:last-child) {
+    border-right: solid #959595 1px;
+}
+
+#catalog tr:nth-child(even) {
+    background: #fdb8152f;
+}
+
+#catalog tr:nth-child(odd) {
+    background: white;
+}
+
+.dataTables_info {
+    background: #00395C;
+    width: calc(100% - 10px);
+    padding: 3px;
+    color: white;
+    font-size: 10px;
+}
+
+@media only screen and (max-width: 1000px) {
+    #ll {
+        padding-left: 10px;
+    }
+
+    #llContent {
+        top: calc(100% - 10px);
+    }
+
+    #mainContent {
+        grid-template-columns: 3fr 7fr;
+    }
+
+    .year {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .semester {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .hiddenInMobile {
+        display: none;
+    }
+
+    #ll {
+        padding-left: 5px;
+    }
+
+    #llContent {
+        top: calc(100% - 5px);
+    }
+}
+
+input {
+    position: relative;
+    border-radius: 10px;
+    color: #FC7C00;
+    border: solid #00395C 3px;
+    padding: 5px;
+    margin-bottom: 10px;
+    width: calc(100% - 10px - 20vw);
+    left: 5px;
+    top: 5px;
+    font-size: 12px;
+}
+
+#hiddenWidth {
+    font-size: 12px;
+    color: transparent;
+}
+
+input::placeholder {
+    color: #959595;
+}
+
+input:focus {
+    outline: none;
+    border: solid #FC7C00;
+    color: #FC7C00;
+}
+
+select {
+    background: #aa0800ff;
+    color: yellow;
+    border: none;
+    padding: 3px;
+    border-radius: 3px;
+}
+
+#blueBook {
+    position: relative;
+    font-family: 'Futura', 'Didact Gothic', sans-serif;
+    font-weight: bold;
+    color: #aa0800ff;
+    background: #EFEFEF;
+    border-radius: 5px;
+    padding: 0px 10px 10px;
+    width: 90%;
+    left: calc(5% - 20px);
+    margin-top: 10px;
+}
+
+#kommieHeader {
+    display: flex;
+    flex-direction: row;
+}
+
+#kommieLogo {
+    position: relative;
+    width: 100px;
+    height: 161px;
+    top: -1px;
+}
+
+#kommieResponse {
+    display: none;
+}
