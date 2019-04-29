@@ -27,6 +27,8 @@ class PlansController < ApplicationController
   def create
     @plan = Plan.new(plan_params)
     @plan.user_id = current_user.id
+    @plan_courses = PlanCourse.where(id: @plan.id)
+    @plan.courses = @plan_courses
 
     respond_to do |format|
       if @plan.save

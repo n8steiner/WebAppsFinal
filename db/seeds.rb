@@ -27,7 +27,7 @@ plan1.save!
 
 plan2 = Plan.new
 plan2.user_id = user1.id
-plan2.name = "Plan1"
+plan2.name = "Plan2"
 plan2.save!
 
 course1 = Course.new
@@ -36,3 +36,9 @@ course1.name = "Spifo"
 course1.description = "Weening from spiritual milk."
 course1.credit_hours = 3
 course1.save!
+
+plancourse1 = PlanCourse.new
+plancourse1.plan_id = plan1.id
+plancourse1.course_id = course1.id
+plancourse1.term = "Fall"
+plancourse1.year = "2019"
