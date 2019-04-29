@@ -42,3 +42,4 @@ plancourse1.plan_id = plan1.id
 plancourse1.course_id = course1.id
 plancourse1.term = "Fall"
 plancourse1.year = "2019"
+plancourse1.save!
