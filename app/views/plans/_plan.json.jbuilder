@@ -5,4 +5,5 @@ json.plan do
        json.year planCourse.year
       json.term planCourse.term
   end
+  json.year @plan.year
 end

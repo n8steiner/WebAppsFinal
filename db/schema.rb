@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190416194035) do
+ActiveRecord::Schema.define(version: 20190429232222) do
+
+  create_table "catalog_courses", force: :cascade do |t|
+    t.integer "catalog_id"
+    t.integer "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["catalog_id"], name: "index_catalog_courses_on_catalog_id"
+    t.index ["course_id"], name: "index_catalog_courses_on_course_id"
+  end
+
+  create_table "catalogs", force: :cascade do |t|
+    t.string "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
@@ -37,6 +52,7 @@ ActiveRecord::Schema.define(version: 20190416194035) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "year"
   end
 
   create_table "users", force: :cascade do |t|

@@ -23,11 +23,13 @@ user2.save!
 plan1 = Plan.new
 plan1.user_id = user1.id
 plan1.name = "Plan1"
+plan1.year = "1984"
 plan1.save!
 
 plan2 = Plan.new
 plan2.user_id = user1.id
 plan2.name = "Plan2"
+plan2.year = "2012"
 plan2.save!
 
 course1 = Course.new
@@ -43,3 +45,12 @@ plancourse1.course_id = course1.id
 plancourse1.term = "Fall"
 plancourse1.year = "2019"
 plancourse1.save!
+
+catalog = Catalog.new
+catalog.year = "1984"
+catalog.save!
+
+catalogCourse = CatalogCourse.new
+catalogCourse.catalog_id = catalog.id
+catalogCourse.course_id = course1.id
+catalogCourse.save!

@@ -139,7 +139,7 @@ function getPageInfo(planId){
         planId = "?plan_id=" + planId;
     }
     $.ajax({
-        url: "http://judah/~townsen/TermProject/scripts/combined.php" + planId,
+        url: "/plans/" + planId + ".json",
         type: 'GET',
         success: function (res) {
             let data = JSON.parse(res);
