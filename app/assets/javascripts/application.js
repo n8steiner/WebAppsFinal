@@ -18,6 +18,16 @@
 //= require_tree .
 
 
+function logout() {
+    $.ajax({
+        type: "DELETE",
+        url: "/users/sign_out",
+        success: function(msg){
+            location.reload();
+        }
+    });
+}
+
 let courses = [];
 
 let catalogTable = null;
@@ -131,10 +141,17 @@ function populatePlansDropdown(data){
     for(let key in data.userPlans){
         result += "<option value=" + key + ">"+ data.userPlans[key] +"</option>";
     }
+
+    result += "<option value='new'> + New Plan</option>";
     $("#plans").html(result);
 }
 
 function getPageInfo(planId){
+    if (planId === "new") {
+        window.location.replace("plans/new")
+        return;
+    }
+
     $.ajax({
         url: "plans/" + planId + ".json",
         type: 'GET',

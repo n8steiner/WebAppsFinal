@@ -85,7 +85,7 @@ nav {
     margin-left: 10px;
     padding: 15px;
 	top: 0px;
-	border-radius: 5px;
+	border-radius: 3px;
 	text-align: center;
 }
 
@@ -102,10 +102,49 @@ nav {
 }
 
 .form-wrapper{
-    position: relative;
+    position: absolute;
     top: 50vh;
     left: 50vw;
-    transform: translate(-50%, -50%);
+    width: 80vw;
+    transform: translate(-37.5%, -50%);
+}
+
+.form-wrapper form {
+    border: #00395C 3px solid;
+    border-radius: 3px;
+    padding: 16px;
+    width: 80%;
+}
+
+.form-wrapper input {
+    padding: 16px;
+    border-radius: 3px;
+    width: calc(100% - 48px);
+}
+
+.form-wrapper input[type=submit] {
+    width: calc(100% - 14px);
+    border: none;
+    background: #FC7C00;
+    color: white;
+    cursor: pointer;
+}
+
+h1 {
+    color: #00395C;
+}
+
+.form-wrapper input[type=submit]:hover {
+    background-color: #fdb815;
+}
+
+.form-wrapper input[type=checkbox] {
+    position: relative;
+    width: 30px;
+    padding: 0px;
+    margin: 0px;
+    float: left;
+    top: 4px;
 }
 
 #mainContent {
@@ -137,9 +176,9 @@ nav {
     background-color: #EFEFEF;
     min-height: 100px;
     overflow: hidden;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
     box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
 }
 
@@ -179,9 +218,9 @@ nav {
 #reqContainer li {
     cursor: pointer;
     margin-bottom: 0px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
     padding: 5px;
 }
 
@@ -261,7 +300,7 @@ nav {
 .course:hover {
     cursor: pointer;
     background-color: #00395C;
-    border-radius: 5px;
+    border-radius: 3px;
     border-bottom-color: transparent;
     color: white;
 }
@@ -357,6 +396,12 @@ nav {
     top: 32px;
     z-index: 1;
     margin-bottom: 40px;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+    margin-left: 0.5em;
+    position: absolute;
+    border-radius: 3px;
 }
 
 #catalog {
@@ -488,7 +533,7 @@ select {
     font-weight: bold;
     color: #aa0800ff;
     background: #EFEFEF;
-    border-radius: 5px;
+    border-radius: 3px;
     padding: 0px 10px 10px;
     width: 90%;
     left: calc(5% - 20px);
