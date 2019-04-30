@@ -222,6 +222,7 @@ h1 {
     -moz-border-radius: 3px;
     border-radius: 3px;
     padding: 5px;
+    font-size: 1.3em;
 }
 
 #reqContainer li:hover {
@@ -252,7 +253,7 @@ h1 {
 .semester {
     position: relative;
     background-color: #FC7C00;
-    border-radius: 7px;
+    border-radius: 5px;
     min-width: 150px;
     width: 30%;
     min-height: 100px;
@@ -399,9 +400,10 @@ h1 {
 }
 
 .dataTables_wrapper .dataTables_filter input {
-    margin-left: 0.5em;
+    margin-left: 0.25em !important;
     position: absolute;
-    border-radius: 3px;
+    border-radius: 50px;
+    width: 79%;
 }
 
 #catalog {
