@@ -4,11 +4,12 @@
     <title>Project6</title>
     <%= csrf_meta_tags %>
 
+    <script src="JS/snackbar.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body  ondrop="bodyDrop(event)" ondragover="allowDrop(event)">
     <%= render 'layouts/header' %>
     <%= yield %>
   </body>

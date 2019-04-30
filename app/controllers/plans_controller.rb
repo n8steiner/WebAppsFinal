@@ -31,11 +31,11 @@ class PlansController < ApplicationController
     @plan.major_id = Major.all[0].id
     @plan.year = Catalog.all[0].year
     @plan.current_semester = "Fall"
-    @plan.current_year = "2019"
+    @plan.current_year = @plan.year
 
     respond_to do |format|
       if @plan.save
-        format.html { redirect_to @plan, notice: 'Plan was successfully created.' }
+        format.html { redirect_to "/", notice: 'Plan was successfully created.' }
         format.json { render :show, status: :created, location: @plan }
       else
         format.html { render :new }
