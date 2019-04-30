@@ -282,7 +282,7 @@ function setUpPlan(data) {
 
     document.getElementById("studentName").innerHTML = data.plan.student.replace(/\b\w/g, l => l.toUpperCase());
     document.getElementById("major").innerHTML = "Major: " + data.plan.major;
-	document.getElementById("minor").innerHTML = "Major: " + data.plan.minor;
+	document.getElementById("minor").innerHTML = "Minor: " + data.plan.minor;
 	document.getElementById("hours").innerHTML = "Total Hours: " + programHours;
     document.getElementById("catalogYear").innerHTML = "Catalog: " + data.plan.catYear;
     document.getElementById("ur").innerHTML = html;

@@ -1,7 +1,10 @@
 json.plan do
     json.id @plan.id
+    json.currYear @plan.current_year
+    json.currTerm @plan.current_semester
+    json.major @major.name
+    json.minor "Bible"
     json.student current_user.login
-
     json.catYear @plan.year
     json.courses do
         @plan.plan_courses.each {
@@ -14,9 +17,11 @@ json.plan do
         }
     end
 end
-json.userPlans @plans do |plan|
-    json.id plan.id
-    json.name plan.name
+json.userPlans do
+  @plans.each{
+        |plan|
+        json.set! plan.id, plan.name
+  }
 end
 json.catalog do
     json.year @catalog.year
