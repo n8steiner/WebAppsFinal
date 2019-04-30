@@ -28,6 +28,10 @@ class PlansController < ApplicationController
   def create
     @plan = Plan.new(plan_params)
     @plan.user_id = current_user.id
+    @plan.major_id = Major.all[0].id
+    @plan.year = Catalog.all[0].year
+    @plan.current_semester = "Fall"
+    @plan.current_year = "2019"
 
     respond_to do |format|
       if @plan.save
@@ -38,6 +42,14 @@ class PlansController < ApplicationController
         format.json { render json: @plan.errors, status: :unprocessable_entity }
       end
     end
+
+    @planCourse = PlanCourse.new()
+    @planCourse.plan_id = @plan.id
+    @planCourse.course_id = Course.where(identifier: "BTGE-1720")[0].id
+    @planCourse.year = @plan.year
+    @planCourse.term = "Fall"
+    @planCourse.save!
+
   end
 
   # PATCH/PUT /plans/1

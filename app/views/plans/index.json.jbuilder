@@ -1,1 +1,3 @@
-json.array! @plans, partial: 'plans/plan', as: :plan
+json.userPlans @plans do |plan|
+        json.id plan.id
+end

@@ -133,7 +133,14 @@ function Year(year) {
 }
 
 $(document).ready(function() {
-    getPageInfo("1");
+    $.ajax({
+        url: "plans.json",
+        type: 'GET',
+        success: function (res) {
+            let data = res;
+            getPageInfo(data.userPlans[0].id);
+        }
+    });
 });
 
 function populatePlansDropdown(data){
