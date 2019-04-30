@@ -123,7 +123,7 @@ function Year(year) {
 }
 
 $(document).ready(function() {
-    getPageInfo("");
+    getPageInfo("1");
 });
 
 function populatePlansDropdown(data){
@@ -135,14 +135,11 @@ function populatePlansDropdown(data){
 }
 
 function getPageInfo(planId){
-    if(planId){
-        planId = "?plan_id=" + planId;
-    }
     $.ajax({
-        url: "/plans/" + planId + ".json",
+        url: "plans/" + planId + ".json",
         type: 'GET',
         success: function (res) {
-            let data = JSON.parse(res);
+            let data = res;
 
             clearPage();
             setUpCatalog(data);
