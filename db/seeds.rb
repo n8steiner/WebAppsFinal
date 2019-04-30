@@ -19,17 +19,27 @@ user2.password = "password"
 user2.password_confirmation = "password"
 user2.save!
 
+major = Major.new
+major.name = "Computer Science"
+major.save!
+
 #give joe a couple of plans
 plan1 = Plan.new
 plan1.user_id = user1.id
 plan1.name = "Plan1"
 plan1.year = "1984"
+plan1.current_semester = "Spring"
+plan1.current_year = "2020"
+plan1.major_id = major.id
 plan1.save!
 
 plan2 = Plan.new
 plan2.user_id = user1.id
 plan2.name = "Plan2"
 plan2.year = "2012"
+plan2.current_semester = "Spring"
+plan2.current_year = "2020"
+plan2.major_id = major.id
 plan2.save!
 
 course1 = Course.new
