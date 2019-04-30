@@ -7,7 +7,7 @@ json.plan do
         @plan.plan_courses.each {
             |planCourse|
             json.set! planCourse.course.identifier do
-                json.identifier planCourse.course.identifier
+                json.id planCourse.course.identifier
                 json.year planCourse.year
                 json.term planCourse.term
             end
@@ -20,19 +20,12 @@ json.userPlans @plans do |plan|
 end
 json.catalog do
     json.year @catalog.year
-    # json.courses do @catalog.catalog_courses do |catCourse|
-    #     json.set! catCourse.course.identifier
-    #     json.identifier catCourse.course.identifier
-    #     json.name catCourse.course.name
-    #     json.description catCourse.course.description
-    #     json.credits catCourse.course.description
-    # end
 
     json.courses do 
         @catalog.catalog_courses.each{
             |catCourse|
             json.set! catCourse.course.identifier do 
-                json.identifier catCourse.course.identifier
+                json.id catCourse.course.identifier
                 json.name catCourse.course.name
                 json.description catCourse.course.description
                 json.credits catCourse.course.credit_hours
