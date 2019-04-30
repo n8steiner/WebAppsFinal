@@ -19,6 +19,7 @@ user2.password = "password"
 user2.password_confirmation = "password"
 user2.save!
 
+#usless comment
 major = Major.new
 major.name = "Computer Science"
 major.save!
