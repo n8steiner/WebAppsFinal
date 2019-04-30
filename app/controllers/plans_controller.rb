@@ -70,6 +70,7 @@ class PlansController < ApplicationController
       @plan = Plan.find(params[:id])
       @catalog = Catalog.where(year: @plan.year)[0]
       @major = Major.where(id: @plan.major_id)[0]
+      @requirement = Requirement.where(major_id: @major.id, catalog_id: @catalog.id)[0]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

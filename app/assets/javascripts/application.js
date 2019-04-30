@@ -291,38 +291,30 @@ function setUpPlan(data) {
 
 
 function setUpAccordion(data) {
-    $.ajax({
-        url: "http://judah/~townsen/TermProject/scripts/req.php?major_id=1&catalog_id=1",
-        type: 'GET',
-        success: function (res) {
-            let data = JSON.parse(res);
+    let accordion = $("#accordion")[0];
+    accordion.innerHTML = "<h3 id=\"reqTitle\" class=\"ui-state-disabled\">Requirements</h3><div></div>";
 
-            let accordion = $("#accordion")[0];
-            accordion.innerHTML = "<h3 id=\"reqTitle\" class=\"ui-state-disabled\">Requirements</h3><div></div>";
-
-            for (let category in data.categories) {
-                let newHtml = ""
-                newHtml += "<h3 class='reqSubHeader'>" + category + "</h3><div><ul>";
-                let courseArr = data.categories[category].courses;
-                for (let c in courseArr) {
-                    let course = courseArr[c];
-                    let courseClass = "";
-                    if (courses[course].isPlanned) {
-                        courseClass = " class='planned'"
-                    }
-                    newHtml += "<li id='" + course + "' " + courseClass + "' draggable='true' ondragstart='drag(event)'>" + courses[course].courseID + " " + courses[course].courseName + "</li>";
-                }
-
-                accordion.innerHTML += newHtml + "</ul></div>";
+    for (let category in data.requirement.categories) {
+        let newHtml = ""
+        newHtml += "<h3 class='reqSubHeader'>" + category + "</h3><div><ul>";
+        let courseArr = data.requirement.categories[category].courses;
+        for (let c in courseArr) {
+            let course = courseArr[c];
+            let courseClass = "";
+            if (courses[course.course].isPlanned) {
+                courseClass = " class='planned'"
             }
-
-
-            $("#accordion").accordion({
-                heightStyle: "fill"
-            });
-            $("#accordion .reqSubHeader:eq(0)").trigger('click');
+            newHtml += "<li id='" + course + "' " + courseClass + "' draggable='true' ondragstart='drag(event)'>" + courses[course.course].courseID + " " + courses[course.course].courseName + "</li>";
         }
+
+        accordion.innerHTML += newHtml + "</ul></div>";
+    }
+
+
+    $("#accordion").accordion({
+        heightStyle: "fill"
     });
+    $("#accordion .reqSubHeader:eq(0)").trigger('click');
 }
 
 function allowDrop(ev) {

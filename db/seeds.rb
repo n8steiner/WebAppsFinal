@@ -65,3 +65,18 @@ catalogCourse = CatalogCourse.new
 catalogCourse.catalog_id = catalog.id
 catalogCourse.course_id = course1.id
 catalogCourse.save!
+
+requirement = Requirement.new
+requirement.catalog_id = catalog.id
+requirement.major_id = major.id
+requirement.save!
+
+category1 = Category.new
+category1.name = "Gen-Ed"
+category1.requirement_id = requirement.id
+category1.save!
+
+categorycourse1 = CategoryCourse.new
+categorycourse1.course_id = course1.id
+categorycourse1.category_id = category1.id
+categorycourse1.save!

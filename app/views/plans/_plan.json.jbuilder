@@ -1,5 +1,6 @@
 json.plan do
     json.id @plan.id
+    json.name @plan.name
     json.currYear @plan.current_year
     json.currTerm @plan.current_semester
     json.major @major.name
@@ -36,5 +37,18 @@ json.catalog do
                 json.credits catCourse.course.credit_hours
             end
         }        
+    end
+end
+
+json.requirement do
+    json.categories do
+        @requirement.categories.each {
+            |category|
+            json.set! category.name do 
+                json.courses category.courses do |catCourse|
+                    json.course catCourse.identifier
+                end
+            end
+        }
     end
 end

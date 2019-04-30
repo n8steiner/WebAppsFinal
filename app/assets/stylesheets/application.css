@@ -101,6 +101,13 @@ nav {
 	background-color: #FC7C00 !important;
 }
 
+.form-wrapper{
+    position: relative;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+
 #mainContent {
     position: relative;
     top: 100px;
@@ -157,7 +164,7 @@ nav {
 }
 
 #reqContainer ul {
-    list-style-image: url("../images/alertCircle.png");
+    list-style-image: url("alertCircle.png");
     padding-right: 15px;
     max-resolution: 0px;
     font-size: 0.8em;
@@ -166,7 +173,7 @@ nav {
 }
 
 .planned {
-    list-style-image: url("../images/check.svg");
+    list-style-image: url("check.svg");
 }
 
 #reqContainer li {
